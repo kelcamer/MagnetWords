@@ -147,7 +147,9 @@ function renderFridge(text) {
   let word = null;
   for (const ch of text) {
     if (ch === "\n") { word = null; fridge.append(el("span", "br")); continue; }
-    if (/\s/.test(ch)) { word = null; fridge.append(el("span", "gap", " ")); continue; }
+    // Spaces end a word; the gap between words is the fridge's column-gap,
+    // so a wrapped line never starts with a stray space.
+    if (/\s/.test(ch)) { word = null; continue; }
     if (!word) { word = el("span", "mag-word"); fridge.append(word); }
     const hue = hueFor(ch);
     const m = el("span", hue ? `mag ltr-${hue}` : "mag other", ch);
