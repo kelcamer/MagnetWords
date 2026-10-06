@@ -1,0 +1,14 @@
+{
+  "name": "magnet-words",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Magnet Words — type anything and every letter takes its Fisher-Price magnet colour; each word becomes a colour strip you can sort, pin and compare.",
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
+}

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Magnet Words</title>
+    <meta name="description" content="Type anything and every letter takes its Fisher-Price magnet colour. Each word becomes a colour strip you can sort, pin and compare." />
+    <meta name="theme-color" content="#FFFCF7" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0B0F14" media="(prefers-color-scheme: dark)" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Fredoka:wght@600;700&family=Martian+Mono:wght@400;500&display=swap" />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="masthead">
+        <div class="rule">
+          <a class="mono" href="https://kelcamer.github.io/SpecialInterests/">← Special Interests</a>
+          <span class="mono">Fisher-Price magnets · 1971–1990</span>
+        </div>
+        <h1 id="title" aria-label="Magnet Words"></h1>
+        <p class="standfirst">
+          Type anything. Every letter takes its magnet colour, and the colour
+          belongs to the letter, so every E is the same blue wherever it lands.
+          Each word turns into a strip you can line up against the others.
+        </p>
+      </header>
+
+      <section class="panel" aria-labelledby="type-h">
+        <div class="panel-head">
+          <h2 id="type-h">Type</h2>
+          <span class="mono" id="count"></span>
+        </div>
+        <textarea id="input" rows="3" spellcheck="false"
+          aria-describedby="type-note">Kelsey reads every paper</textarea>
+        <p class="mono note" id="type-note">
+          Accented letters take their base letter's colour. Digits and
+          punctuation had no magnets, so they stay grey. The text is saved in
+          the link, so copying the address shares it.
+        </p>
+      </section>
+
+      <section class="panel fridge-panel" aria-labelledby="fridge-h">
+        <div class="panel-head">
+          <h2 id="fridge-h">Fridge</h2>
+          <span class="mix-wrap" id="total-mix"></span>
+        </div>
+        <div class="fridge" id="fridge" aria-live="polite"></div>
+      </section>
+
+      <section class="panel" aria-labelledby="strips-h">
+        <div class="panel-head">
+          <h2 id="strips-h">Strips</h2>
+          <div class="controls">
+            <label class="mono">Sort
+              <select id="sort">
+                <option value="typed">as typed</option>
+                <option value="alpha">A–Z</option>
+                <option value="length">longest first</option>
+                <option value="colour">by main colour</option>
+              </select>
+            </label>
+            <label class="mono check">
+              <input type="checkbox" id="dedupe" checked /> each word once
+            </label>
+          </div>
+        </div>
+        <ol class="strips" id="strips"></ol>
+      </section>
+
+      <section class="panel" aria-labelledby="shelf-h">
+        <div class="panel-head">
+          <h2 id="shelf-h">Shelf</h2>
+          <button class="mono link" id="clear-shelf" type="button">clear</button>
+        </div>
+        <p class="mono note" id="shelf-empty">
+          Pin a strip to keep it here while you type something else. The shelf
+          stays in this browser.
+        </p>
+        <ol class="strips" id="shelf"></ol>
+      </section>
+
+      <section class="panel" aria-labelledby="key-h">
+        <div class="panel-head">
+          <h2 id="key-h">The set</h2>
+          <span class="mono">six colours, cycling from A</span>
+        </div>
+        <div class="key" id="key"></div>
+        <p class="mono note">
+          The colours are the Fisher-Price plastic alphabet magnets. Witthoft,
+          Winawer &amp; Eagleman (2015) found more than 6% of 6,588
+          American grapheme-colour synesthetes learned many of their letter
+          colours from this toy, and about 15% of those born 1975–1980.
+          <a href="https://doi.org/10.1371/journal.pone.0118996" target="_blank" rel="noopener">PLoS ONE 10(3):e0118996</a>
+          · <a href="https://pubmed.ncbi.nlm.nih.gov/25739095/" target="_blank" rel="noopener">PMID 25739095</a>
+        </p>
+      </section>
+
+      <footer>
+        <p class="mono">
+          <a href="https://kelcamer.github.io/SpecialInterests/">Special Interests</a>
+          · <a href="https://github.com/kelcamer/MagnetWords" target="_blank" rel="noopener">source</a>
+        </p>
+      </footer>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
