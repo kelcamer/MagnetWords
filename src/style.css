@@ -228,6 +228,8 @@ button.link:disabled { color: var(--muted); text-decoration: none; cursor: defau
   filter: drop-shadow(0 0.045em 0 rgba(20, 18, 14, 0.22));
 }
 .mag.other { color: var(--muted); font-weight: 600; }
+/* a word only breaks if it alone is wider than the fridge */
+.mag-word { display: inline-flex; flex-wrap: wrap; max-width: 100%; }
 .gap { display: inline-block; width: 0.45em; }
 .br { flex-basis: 100%; height: 0; }
 

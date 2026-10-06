@@ -142,15 +142,19 @@ function renderFridge(text) {
   const fridge = $("fridge");
   fridge.replaceChildren();
   let i = 0;
+  // Each word's magnets sit in one unbreakable group, so a line wraps
+  // between words, never through one.
+  let word = null;
   for (const ch of text) {
-    if (ch === "\n") { fridge.append(el("span", "br")); continue; }
-    if (/\s/.test(ch)) { fridge.append(el("span", "gap", " ")); continue; }
+    if (ch === "\n") { word = null; fridge.append(el("span", "br")); continue; }
+    if (/\s/.test(ch)) { word = null; fridge.append(el("span", "gap", " ")); continue; }
+    if (!word) { word = el("span", "mag-word"); fridge.append(word); }
     const hue = hueFor(ch);
     const m = el("span", hue ? `mag ltr-${hue}` : "mag other", ch);
     // A small fixed tilt per slot, the way magnets never sit straight. It's
     // from the position, not random, so the fridge doesn't jitter as you type.
     m.style.setProperty("--tilt", `${(((i * 37) % 9) - 4) * 0.9}deg`);
-    fridge.append(m);
+    word.append(m);
     i++;
   }
 }
